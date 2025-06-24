@@ -1,2 +1,2 @@
 # linuxlearning
-These is my Linux notes from CoderCo
+These are all my Linux notes from CoderCo
