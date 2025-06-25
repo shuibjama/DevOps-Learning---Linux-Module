@@ -1,44 +1,57 @@
 # 🔐 Bandit Level 5 → Level 6
 
 ## 🧠 Challenge Summary
-> The password for the next level is stored somewhere in the `inhere` directory. It's a human-readable file, exactly **1033 bytes** in size.
+> The password for the next level is hidden *somewhere* in the `inhere` directory.  
+> It has **all** of these properties:
+> - Human-readable  
+> - Exactly **1033 bytes**  
+> - **Not executable**
+
+---
 
 ## 🧪 What Happened
 
-This level was about precision. The inhere directory had 20 subfolders (maybehere00 → maybehere19), and inside each were several files — some hidden, some with weird names, some large or binary.
+- First, I `cd` into the `inhere` folder:
+  ```bash
+  cd inhere
+Tried listing files and manually reading them with cat, but there were too many subfolders and files:
 
-At first, I tried poking around manually, running `ls` and `cat` on a few files. But it quickly became clear: **manual searching wouldn't scale**.
-
-So I relied on the `find` command to surgically locate the right file using the size:
+ls -l
+Realized this was inefficient. Switched to using find to search for files that matched the exact byte size:
 
 find . -type f -size 1033c
-Boom — it gave me exactly one match:
-./maybehere07/.file2
-I ran:
-cat ./maybehere07/.file2
-And got the password for the next level:
-HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
-🎯 Level Complete.
+Only one match showed up:
 
+./maybehere07/.file2
+Finally, I read the contents:
+
+cat ./maybehere07/.file2
+✅ Found the password:
+
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 😅 Mistakes I Made
-❌ I started manually exploring files with cat, which was a huge waste of time.
+❌ Started manually opening files — slow, messy
+
+❌ Forgot the c suffix on the -size flag, which caused find to behave incorrectly
 
 ✅ What Worked
 find . -type f -size 1033c
-Explanation:
+🔍 Narrowed down to a single file by filtering:
 
-. → search in current directory
+. = current directory
 
--type f → look for files
+-type f = files only
 
--size 1033c → exact size in bytes (c = char)
+-size 1033c = exactly 1033 bytes (c = characters/bytes)
 
-Then simply:
+Then:
 cat ./maybehere07/.file2
 
 💡 What I Learned
-🔍 find is essential for real-world Linux work — use it to filter by file size, type, and more.
+find is indispensable for targeted searches — don’t overlook it
 
-📏 Always use the c suffix when dealing with bytes in find -size.
+File size filters must be precise, especially with suffixes (c = bytes)
 
-🧼 Avoid noisy, manual work — think in filters and leverage shell tools.
+Brute-force is tempting, but smart filters save time and sanity
+
+Ready for Level 6 → 7 🚀
