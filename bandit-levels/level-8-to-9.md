@@ -10,10 +10,6 @@ Find the password for **bandit9** by reading the contents of a file named `data.
 
 ## 🧪 **What Happened**
 
-Listing files showed this:
-
-
--rw-r----- 1 bandit9 bandit8 33033 Apr 10 14:23 data.txt
 Using:
 cat data.txt
 I saw many lines of strings, with some repeating multiple times and some unique, but the password was not obvious by just looking.
