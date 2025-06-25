@@ -33,10 +33,8 @@ The password was sitting right next to the word millionth, exactly as the level 
 ❌ I wasted time before remembering to try grep
 
 ✅ What Worked
-bash
-Copy
-Edit
 grep millionth data.txt
+
 This worked because:
 
 grep scans the file line-by-line for the keyword
