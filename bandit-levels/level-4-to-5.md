@@ -12,6 +12,7 @@ inhere
 bandit4@bandit:~$ cd inhere
 bandit4@bandit:~/inhere$ ls -h
 -file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+
 I then tried to read the files normally:
 bandit4@bandit:~/inhere$ cat ./file00
 cat: ./file00: No such file or directory
