@@ -20,10 +20,6 @@ This command surgically filtered out the noise and gave me exactly one match:
 → ./maybehere07/.file2
 
 Then:
-
-bash
-Copy
-Edit
 cat ./maybehere07/.file2
 Boom — the password was in there 🎯
 
@@ -36,10 +32,6 @@ Boom — the password was in there 🎯
 
 ✅ What Worked
 After trial and error, I settled on:
-
-bash
-Copy
-Edit
 find . -type f -size 1033c ! -executable
 Explanation:
 
@@ -52,10 +44,6 @@ Explanation:
 ! -executable → ignore binaries/scripts
 
 Then simply:
-
-bash
-Copy
-Edit
 cat ./maybehere07/.file2
 💡 What I Learned
 🔍 find is extremely powerful for narrowing down file searches based on properties like size, permissions, types, etc.
@@ -65,10 +53,3 @@ cat ./maybehere07/.file2
 ⚙️ When instructions mention "not executable", use ! -executable to filter correctly.
 
 🚫 It's inefficient to check everything manually — let the tools filter things for you.
-
-🔑 Password for Bandit Level 6
-nginx
-Copy
-Edit
-DXjZPULLxYr17uwoI01bNLQbtFemEgo7
-(Found inside ./maybehere07/.file2)
