@@ -27,7 +27,7 @@ Welcome to my Linux learning journey as part of the CoderCo DevOps program! This
 
 ## 🤝 LinkedIn Posts
 
-- 📌 [Post 1: Why Linux matters for DevOps]([#](https://www.linkedin.com/posts/shuibjama_linux-devops-coderco-activity-7342929979615178753-w3mR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC6Hyi4BgnkHL8f4dHAmUD6L6DnX7Z0pnbg))
+- 📌 [Post 1: Why Linux matters for DevOps](https://www.linkedin.com/posts/shuibjama_linux-devops-coderco-activity-7342929979615178753-w3mR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC6Hyi4BgnkHL8f4dHAmUD6L6DnX7Z0pnbg)
 - 🔧 [Post 2: Overcoming SSH and Permissions](#)
 - ✅ [Post 3: Sharing my GitHub and reflections](#)
 
@@ -43,4 +43,4 @@ Welcome to my Linux learning journey as part of the CoderCo DevOps program! This
 
 ## 🔗 Connect
 
-📫 Feel free to reach out on [LinkedIn](www.linkedin.com/in/shuibjama) or explore my GitHub for more projects!
+📫 Feel free to reach out on [LinkedIn](https://www.linkedin.com/in/shuibjama) or explore my GitHub for more projects!
