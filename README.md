@@ -21,8 +21,13 @@ Welcome to my Linux learning journey as part of the CoderCo DevOps program! This
 | Level 0 → 1 | [level-0-to-1.md](./bandit-levels/level-0-to-1.md) |
 | Level 1 → 2 | [level-1-to-2.md](./bandit-levels/level-1-to-2.md) |
 | Level 2 → 3 |  [level-2-to-3.md](./bandit-levels/level-2-to-3.md) |
-| ... | ... |
-
+| Level 3 → 4 |  [level-3-to-4.md](./bandit-levels/level-3-to-4.md) |
+| Level 4 → 5 |  [level-4-to-5.md](./bandit-levels/level-4-to-5.md) |
+| Level 5 → 6 |  [level-5-to-6.md](./bandit-levels/level-5-to-6.md) |
+| Level 6 → 7 |  [level-6-to-7.md](./bandit-levels/level-6-to-7.md) |
+| Level 7 → 8 |  [level-7-to-8.md](./bandit-levels/level-7-to-8.md) |
+| Level 8 → 9 |  [level-8-to-9.md](./bandit-levels/level-8-to-9.md) |
+| Level 9 → 10 |  [level-9-to-10.md](./bandit-levels/level-9-to-10.md) |
 ---
 
 ## 🤝 LinkedIn Posts
