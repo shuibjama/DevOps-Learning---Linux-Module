@@ -20,7 +20,7 @@ Welcome to my Linux learning journey as part of the CoderCo DevOps program! This
 | Level 0 | [level-0.md](./bandit-levels/level-0.md) |
 | Level 0 → 1 | [level-0-to-1.md](./bandit-levels/level-0-to-1.md) |
 | Level 1 → 2 | [level-1-to-2.md](./bandit-levels/level-1-to-2.md) |
-| Level 2 → 3 | _Coming soon..._ |
+| Level 2 → 3 |  [level-2-to-3.md](./bandit-levels/level-2-to-3.md) |
 | ... | ... |
 
 ---
