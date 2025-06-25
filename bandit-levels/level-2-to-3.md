@@ -1,47 +1,45 @@
-🔐 Level 2 → 3: Quoted Filenames & find to the Rescue
-🧪 What Happened
-This level was smoother than the last — I was tasked with finding and reading a file that had spaces in its name. That’s the twist.
+## 🔐 Level 2 → 3: Finding Files with Spaces in the Name
 
-I tried checking what was in the current directory:
+---
 
-bash
-Copy
-Edit
+### 🧪 What Happened
+
+This level was about finding and reading a file with **spaces in its filename** — a great little challenge in terminal navigation and quoting.
+
+When I first connected:
+
 bandit2@bandit:~$ ls
 spaces in this filename
-I knew right away this would cause trouble if I wasn’t careful. A filename like that needs to be quoted or escaped. But I wanted to play smart, so I used:
+Okay, cool — there's a file literally called: spaces in this filename. I know that when filenames have spaces, I need to quote the string or escape the spaces. I wanted to be thorough, so I used the find command first to confirm its existence:
 
-bash
-Copy
-Edit
-bandit2@bandit:~$ find . -name "spaces in this filename"
-That confirmed the file existed with the exact name. Then I used cat with quotes:
+find . -name "spaces in this filename"
+That gave me:
 
-bash
-Copy
-Edit
-bandit2@bandit:~$ cat "spaces in this filename"
-And boom — the password popped out instantly:
+./spaces in this filename
+Now I just needed to cat the file, so I used quotes:
+
+cat "spaces in this filename"
+And it worked! 🎉
+
+The password for the next level was:
 
 MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
-
 😅 Mistakes I Made
-🔸 None this time! 🎉
-I applied what I learned from the last level and avoided terminal confusion by quoting the filename immediately.
+🔸 At first, I didn’t quote the filename — which would have broken the cat command if spaces were unescaped.
+
+🔸 I didn’t actually make major mistakes here, but I used find out of habit just to confirm the file exists — not necessary, but helpful.
 
 ✅ What Worked
-✔️ Used find . -name "filename" to safely search for exact names
-✔️ Quoted the filename properly when using cat
-✔️ Quickly exited and moved to the next level using:
 
-bash
-Copy
-Edit
+cat "spaces in this filename"
+✅ Quoting filenames with spaces
+✅ Using find to be extra sure
+✅ Smooth connection to the next level:
+
 ssh bandit3@bandit.labs.overthewire.org -p 2220
 💡 What I Learned
-🔹 Files with spaces must be quoted when used in commands
+Quoting filenames with spaces is essential. Either "double quotes" or escaping with backslashes (\ ) works.
 
-🔹 find is a powerful way to locate files — especially when you’re unsure where exactly they are
+The find command is powerful for discovering files by name.
 
-🔹 Terminal precision is everything. One misquote or space can throw off a whole command
-
+Sometimes the level is easier than expected — but it’s still worth approaching it methodically.
