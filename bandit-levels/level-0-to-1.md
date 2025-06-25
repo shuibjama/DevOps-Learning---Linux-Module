@@ -9,22 +9,10 @@ At Level 0, the goal was simple: log in to the Bandit server using SSH and find 
 - Connected to the Bandit server using SSH on a custom port:
    ssh bandit0@bandit.labs.overthewire.org -p 2220
 Listed files in the home directory using:
-
-bash
-Copy
-Edit
 ls
 Read the readme file to find instructions and the password:
-
-bash
-Copy
-Edit
 cat readme
 Found the password for Level 1:
-
-nginx
-Copy
-Edit
 ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 💡 What I Learned:
 How to connect to a remote Linux server via SSH
@@ -37,10 +25,6 @@ Navigating and interacting with a remote Linux environment
 
 🎉 Level 1: Next Level Access
 Using the password from Level 0, I connected to Level 1 with:
-
-bash
-Copy
-Edit
 ssh bandit1@bandit.labs.overthewire.org -p 2220
 The server confirmed successful login, marking the start of the next challenge.
 
