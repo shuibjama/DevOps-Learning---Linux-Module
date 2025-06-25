@@ -42,12 +42,15 @@ Then I used:
 cat /path/to/found/file
 To display the file contents and retrieve the password.
 
+
 😅 Mistakes I Made
+
 ❌ Initially tried searching manually with ls and cat in common directories — too slow and inefficient.
 
 ❌ Forgot to suppress permission errors at first, which cluttered the output.
 
 ❌ Almost overlooked combining both user and group ownership filters in the find command.
+
 
 ✅ What Worked
 The winning command was:
@@ -60,7 +63,9 @@ Following it up with:
 cat /path/to/found/file
 Allowed me to read the password and move on to the next level.
 
+
 💡 What I Learned
+
 🔍 Combining multiple filters in find makes it extremely powerful for pinpointing files.
 
 📏 Always use the c suffix in -size to specify size in bytes exactly.
