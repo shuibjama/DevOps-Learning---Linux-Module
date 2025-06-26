@@ -75,10 +75,4 @@ This step taught me how services can require interaction over TCP ports to get s
 
 I improved command syntax and error handling by correcting typos and understanding DNS resolution 🧠
 
-Commands I Used and Why:
-whoami	Confirmed my current user
-cat	Read the password file
-nc (netcat)	Connected to localhost on port 30000 to send password and receive next password
-exit	Logged out from current SSH sessions
-ssh	Connected to next Bandit level using correct hostname and port
-
+This was a solid learning experience about networking basics, piping commands, and SSH troubleshooting.
