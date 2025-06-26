@@ -28,17 +28,10 @@ I mistakenly tried:
 
 cd sshkey.private
 That didn’t work because it’s not a directory 😅.
-
-I also accidentally ran:
-
-cd ./ sshkey.private
-Which gave me:
-
-cd: too many arguments
 Classic typo. I reset, laughed it off, and moved forward.
 
 🧠 Realization
-Since I have a private key, I figured I could SSH into the next user like this:
+Since I have a private key, I figured (after some research) I could SSH into the next user like this:
 
 ssh -i sshkey.private bandit14@localhost -p 2220
 Then it prompted me:
