@@ -1,7 +1,3 @@
-Sure! Here’s a **fully markable GitHub-style README** starting **literally** from your first line, written in 1st person, lightly trial-and-error style, without over-noobing, with emojis for style:
-
----
-
 ````markdown
 # 🏴‍☠️ Bandit Level 18 → 19
 
@@ -82,14 +78,6 @@ ssh user@host command
 ```
 
 * Always look for a `readme` or similar hint file.
-
----
-
-## ✏ **Final password for bandit19:**
-
-```text
-cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
-```
 
 ---
 
