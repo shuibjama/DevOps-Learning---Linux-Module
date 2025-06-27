@@ -1,10 +1,3 @@
-Got you — crystal clear now:
-
-✅ **Markdown starting *literally* from the very first terminal line you typed, as part of the post — no summary first, just straight from the first `bandit17@bandit:~$` line, then explanation, then what I did next.**
-Here’s the *fully markable*, README-style GitHub post, starting from the raw terminal output:
-
----
-
 # 🏴‍☠️ Bandit Level 17 → 18
 
 bandit17@bandit:~$ ls
