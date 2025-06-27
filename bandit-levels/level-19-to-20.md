@@ -1,68 +1,88 @@
-🚀 OverTheWire Bandit Level 19 → 20
-What I did:
-I listed the files in my home directory on bandit19:
+# OverTheWire Bandit Level 19 → 20 🚀
 
-ls
-I spotted the setuid binary bandit20-do owned by bandit20:
+Here’s how I tackled the challenge step-by-step, with some trial and error and important lessons along the way.
 
-ls -la .
-# -rwsr-x--- 1 bandit20 bandit19 14884 Apr 10 14:23 bandit20-do
-🔑 This means the binary runs with bandit20’s privileges.
+---
 
-I ran the binary to see what it does:
+### Step 1: Checking the files in the home directory
 
-./bandit20-do id
-Output:
+I started by listing the files:
 
+bandit19@bandit:~$ ls
+bandit20-do
+There’s a single executable file called bandit20-do.
+
+Step 2: Inspecting file permissions and details
+I wanted to see the permissions and ownership:
+
+bandit19@bandit:~$ ls -la .
+total 36
+drwxr-xr-x  2 root     root      4096 Apr 10 14:23 .
+drwxr-xr-x 70 root     root      4096 Apr 10 14:24 ..
+-rwsr-x---  1 bandit20 bandit19 14884 Apr 10 14:23 bandit20-do
+-rw-r--r--  1 root     root       220 Mar 31  2024 .bash_logout
+-rw-r--r--  1 root     root      3771 Mar 31  2024 .bashrc
+-rw-r--r--  1 root     root       807 Mar 31  2024 .profile
+The important bit is that bandit20-do has the setuid bit set (-rwsr-x---).
+
+It is owned by user bandit20 and group bandit19.
+
+This means when I run this program, it executes with the permissions of bandit20 user — key to escalating privileges here! 🔑
+
+Step 3: Running the program with a simple command
+To understand what this program does, I tried running it with a common command like id to see the user context:
+
+bandit19@bandit:~$ ./bandit20-do id
 uid=11019(bandit19) gid=11019(bandit19) euid=11020(bandit20) groups=11019(bandit19)
-👀 It confirmed the binary runs as bandit20.
+✅ The effective user ID (euid=11020(bandit20)) shows it’s running as bandit20, confirming setuid is working.
 
-I used the binary to read bandit20’s password file:
+Step 4: Using the program to read the password file
+Next, I tested if I could use it to read the next level's password file, by passing the command to cat the password file:
 
-./bandit20-do cat /etc/bandit_pass/bandit20
-And got:
-
+bandit19@bandit:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
-🎉 Password acquired!
+Boom! 🎉 The program lets me run commands as bandit20, so I can read the password for the next level.
 
-Tried SSH directly from inside bandit19 to bandit20:
+Step 5: Logging into the next level
+With the password in hand, I attempted to SSH into bandit20:
 
-ssh bandit20@bandit.labs.overthewire.org -p 2220
-After accepting the host key and entering the password, I got this message:
+bandit19@bandit:~$ ssh bandit20@bandit.labs.overthewire.org -p 2220
+The authenticity of host '[bandit.labs.overthewire.org]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit19/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit19/.ssh/known_hosts).
+
+                      This is an OverTheWire game server.
+            More information on http://www.overthewire.org/wargames
 
 !!! You are trying to log into this SSH server with a password on port 2220 from localhost.
 !!! Connecting from localhost is blocked to conserve resources.
 !!! Please log out and log in again.
 
 bandit20@bandit.labs.overthewire.org: Permission denied (publickey).
-❌ SSH from localhost inside the server is blocked!
+🔍 The important message:
+"You are trying to log into this SSH server with a password on port 2220 from localhost. Connecting from localhost is blocked."
 
-I accidentally ran the password as a command:
+This means I can’t SSH to the next level from within the same session on the server. I need to log out of bandit19 and SSH directly from my own machine.
 
-0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
-Which gave:
+Step 6: Exiting and logging in from my own machine
+I exited bandit19:
 
-command not found
-🤦‍♂️ Of course — it’s a password, not a command!
+bandit19@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+Then on my local machine terminal, I SSH’ed directly into bandit20 using the password I found:
 
-Tried SSH again from inside the server — same error.
+sjama@ShuibJama:~$ ssh bandit20@bandit.labs.overthewire.org -p 2220
+Summary & Lessons Learned 📚
+The setuid bit lets you run executables with the permissions of another user — essential for privilege escalation.
 
-Realized the right approach:
+Running ./bandit20-do with commands as arguments lets me act as bandit20.
 
-Exit fully from the bandit server to my local machine:
-exit
+Cannot SSH into bandit20 from the same server, need to SSH directly from my own machine.
 
-Then SSH into bandit20 from my own local terminal:
-ssh bandit20@bandit.labs.overthewire.org -p 2220
+Reading error messages carefully is crucial; they guide your next steps.
 
-Enter the password
-✅ And I’m in!
-
-Summary & Lessons
-The bandit20-do binary lets me read the next level’s password because it runs as bandit20.
-
-SSH connections from inside the server itself are blocked for password logins (to save resources).
-
-Always exit back to your local machine before SSH-ing to the next level.
-
-Don’t run passwords as commands! 😅
+This was tricky but a great step toward understanding Linux permissions and privilege escalation!
