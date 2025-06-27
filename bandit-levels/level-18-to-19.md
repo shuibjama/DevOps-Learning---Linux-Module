@@ -1,4 +1,3 @@
-````markdown
 # 🏴‍☠️ Bandit Level 18 → 19
 
 ## 🧩 **The Challenge:**
@@ -13,9 +12,8 @@ I realised logging in directly to `bandit18` wasn’t going to work because `.ba
 So I had to think: *Is there a way to get the contents of the `readme` file without actually opening an interactive shell?*
 
 Did some quick reading and found out you can run single remote commands via SSH like:
-```bash
+
 ssh user@host command
-````
 
 That way, you never get into the shell at all — so `.bashrc` can’t kick you out. Neat trick.
 
