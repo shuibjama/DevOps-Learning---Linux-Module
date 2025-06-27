@@ -1,24 +1,6 @@
 # 🏴‍☠️ Bandit Level 17 → 18
 
-bandit17@bandit:~$ ls
-passwords.new  passwords.old
-
-bandit17@bandit:~$ id
-uid=11017(bandit17) gid=11017(bandit17) groups=11017(bandit17)
-
-bandit17@bandit:~$ ls
-passwords.new  passwords.old
-
-bandit17@bandit:~$ diff passwords.new passwords.old
-42c42
-< x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
----
-> C6XNBdYOkgt5ARXESMKWWOUwBeaIQZ0Y
-```
-
----
-
-## 🧩 **What happened:**
+**What happened:**
 
 When I first logged in as `bandit17`, I saw two files:
 
