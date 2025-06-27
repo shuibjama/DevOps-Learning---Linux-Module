@@ -1,52 +1,43 @@
 ````markdown
 # 🏴‍☠️ Bandit Level 18 → 19
 
-bandit18@bandit.labs.overthewire.org: Permission denied (publickey).
+## 🧩 **The Challenge:**
+> *The password for the next level is stored in a file called `readme` in the home directory. Unfortunately, someone has modified `.bashrc` to log you out when you log in with SSH.*
 
-sjama@ShuibJama:~$ ssh -p 2220 bandit18@bandit.labs.overthewire.org cat readme
-                         _                     _ _ _
-                        | |__   __ _ _ __   __| (_) |_
-                        | '_ \ / _` | '_ \ / _` | | __|
-                        | |_) | (_| | | | | (_| | | |_
-                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+**Commands that might help:** `ssh`, `ls`, `cat`
 
-                      This is an OverTheWire game server.
-            More information on http://www.overthewire.org/wargames
+---
 
-bandit18@bandit.labs.overthewire.org's password:
-cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+## ✏ **My approach:**
+I realised logging in directly to `bandit18` wasn’t going to work because `.bashrc` logs me out instantly.  
+So I had to think: *Is there a way to get the contents of the `readme` file without actually opening an interactive shell?*
 
-sjama@ShuibJama:~$ ssh bandit19@bandit.labs.overthewire.org -p 2220
-                         _                     _ _ _
-                        | |__   __ _ _ __   __| (_) |_
-                        | '_ \ / _` | '_ \ / _` | | __|
-                        | |_) | (_| | | | | (_| | | |_
-                        |_.__/ \__,_|_| |_|\__,_|_|\__|
-
-                      This is an OverTheWire game server.
-            More information on http://www.overthewire.org/wargames
-
-bandit19@bandit.labs.overthewire.org's password:
+Did some quick reading and found out you can run single remote commands via SSH like:
+```bash
+ssh user@host command
 ````
 
----
-
-## 🧩 **What happened:**
-
-This level was interesting: I couldn't log in normally as `bandit18` because it used `publickey` auth only.
-But I realised there *is* a file called `readme` containing the password for the next level.
+That way, you never get into the shell at all — so `.bashrc` can’t kick you out. Neat trick.
 
 ---
 
-## ⚡ **Step 1 – Grab the password remotely:**
+## ⚡ **What I tried & what worked:**
 
-Since normal login failed, I used:
+At first I tried logging in normally:
 
+```bash
+ssh bandit18@bandit.labs.overthewire.org -p 2220
+```
 
+But that logged me out immediately.
+
+Then, instead, I ran:
+
+```bash
 ssh -p 2220 bandit18@bandit.labs.overthewire.org cat readme
 ```
 
-That asked me for the `bandit18` password I got from the previous level, then showed:
+It prompted me for the `bandit18` password (from the previous level), and then printed:
 
 ```
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
@@ -56,11 +47,11 @@ cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 ## 🔑 **Step 2 – Use it to log into bandit19:**
 
-=
+```bash
 ssh bandit19@bandit.labs.overthewire.org -p 2220
 ```
 
-And when prompted, I used:
+and when it asked for the password, I used:
 
 ```
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
@@ -70,15 +61,6 @@ cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 ## ✅ **What I learned:**
 
-* Some levels force you to use `publickey` so you can’t log in normally.
-* You can still run remote commands directly over SSH:
-
-```bash
-ssh user@host command
-```
-
-* Always look for a `readme` or similar hint file.
-
----
-
-> 🛠 *Another one down — slowly getting smoother with remote SSH tricks!*
+* Even if you can’t log in normally, SSH lets you execute a remote command directly.
+* Files like `.bashrc` only run when you start an interactive shell, not when you run single commands.
+* Always check for `readme` or password files first.
