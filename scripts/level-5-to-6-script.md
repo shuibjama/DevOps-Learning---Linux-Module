@@ -1,12 +1,17 @@
-cd ~/inhere
-
-# trial and error checking:
-ls maybehere00
-ls maybehere01
-ls maybehere02
-...
-ls maybehere19
-
-# finally:
-find . -type f -size 1033c ! -executable
-cat ./maybehere07/.file2
+cd inhere
+ls -l
+cd maybehere00
+ls
+cat ./file1
+cat ./-file1
+find . -type f -size 1033
+find . -type f -size 1033c
+cd
+find . -type f -size 1033c
+cat ./inhere/maybehere07/.file2
+ls - l ./inhere/maybehere07/.file2
+ls -l ./inhere/maybehere07/.file2
+file ./inhere/maybehere07/.file2
+cat ./inhere/maybehere07/.file2
+exit
+ssh bandit6@bandit.labs.overthewire.org -p 2220
