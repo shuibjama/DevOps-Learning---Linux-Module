@@ -28,6 +28,16 @@ Welcome to my Linux learning journey as part of the CoderCo DevOps program! This
 | Level 7 → 8 |  [level-7-to-8.md](./bandit-levels/level-7-to-8.md) |
 | Level 8 → 9 |  [level-8-to-9.md](./bandit-levels/level-8-to-9.md) |
 | Level 9 → 10 |  [level-9-to-10.md](./bandit-levels/level-9-to-10.md) |
+| Level 10 → 11  | [level-10-to-11.md](./bandit-levels/level-10-to-11.md) |
+| Level 11 → 12 | [level-11-to-12.md](./bandit-levels/level-11-to-12.md) |
+| Level 12 → 13 | [level-12-to-13.md](./bandit-levels/level-12-to-13.md) |
+| Level 13 → 14 |  [level-13-to-14.md](./bandit-levels/level-13-to-14.md) |
+| Level 14 → 15 |  [level-14-to-15.md](./bandit-levels/level-14-to-15.md) |
+| Level 15 → 16 |  [level-15-to-16.md](./bandit-levels/level-15-to-16.md) |
+| Level 16 → 17 |  [level-16-to-17.md](./bandit-levels/level-16-to-17.md) |
+| Level 17 → 18 |  [level-17-to-18.md](./bandit-levels/level-17-to-18.md) |
+| Level 18 → 19 |  [level-18-to-19.md](./bandit-levels/level-18-to-19.md) |
+| Level 19 → 20 |  [level-19-to-20.md](./bandit-levels/level-19-to-20.md) |
 ---
 
 ## 🤝 LinkedIn Posts
